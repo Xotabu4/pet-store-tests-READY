@@ -2,22 +2,17 @@
   "name": "pet-store-tests-ready",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
-    "swagger-to-ts": "npx @manifoldco/swagger-to-ts http://93.126.97.71:10080/api/swagger.json --output ./types/petstore.ts",
     "test": "mocha --require ts-node/register ./test/**/*.ts"
   },
   "author": "Oleksandr Khotemskyi <xotabu4@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "@types/chai": "^4.2.14",
-    "@types/mocha": "^8.2.0",
-    "@types/node": "^14.14.20",
-    "chai": "^4.2.0",
-    "http-req-builder": "^1.0.2",
-    "mocha": "^8.2.1",
-    "openapi-request-validator": "Xotabu4/openapi-request-validator",
-    "ts-node": "^9.1.1",
-    "typescript": "^4.1.3"
+    "@types/mocha": "8.2.0",
+    "@types/node": "14.14.20",
+    "got": "11.7.0",
+    "mocha": "8.2.1",
+    "ts-node": "9.1.1",
+    "typescript": "4.1.3"
   }
 }

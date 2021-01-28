@@ -3,11 +3,13 @@ import { strict as assert } from 'assert'
 import { URLSearchParams } from 'url';
 
 describe('Pet', () => {
+
     it('can be received by id', async function () {
         const response = await got('http://93.126.97.71:10080/api/pet/1');
         const body = JSON.parse(response.body);
         assert(body.id == 1)
     })
+
     it('can be received by status', async function () {
         let response = await got('http://93.126.97.71:10080/api/pet/findByStatus', {
             searchParams: { status: 'available' }
@@ -37,6 +39,7 @@ describe('Pet', () => {
         assert(body.some((pet: any) => pet.status == 'pending'))
         assert(!body.some((pet: any) => pet.status == 'sold'))
     })
+    
     it('can be received by tag', async function () {
         const response = await got('http://93.126.97.71:10080/api/pet/findByTags', {
             searchParams: {tags: 'tag1'}

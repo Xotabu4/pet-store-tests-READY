@@ -1,5 +1,5 @@
 import { strict as assert } from 'assert'
-import { PetController } from '../api/controller/pet-no-builder.controller';
+import { PetController } from '../api/controller/pet.controller';
 
 const pet = new PetController()
 

@@ -1,4 +1,4 @@
-import type { Options, Method, Response } from 'got';
+import type { Options, Method } from 'got';
 import got from 'got';
 
 export class JsonRequest {

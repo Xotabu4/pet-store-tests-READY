@@ -2,7 +2,7 @@ import got from 'got';
 import { strict as assert } from 'assert'
 import { URLSearchParams } from 'url';
 
-describe('Pet', () => {
+describe.skip('Pet', () => {
 
     it('can be received by id', async function () {
         const response = await got('http://93.126.97.71:10080/api/pet/1');

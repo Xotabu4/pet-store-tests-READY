@@ -3,15 +3,19 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
+    "postinstall": "npm pretest",
+    "pretest": "openapi-typescript http://93.126.97.71:10080/api/swagger.json --output ./.temp/types.ts",
     "test": "mocha --require ts-node/register ./test/**/*.ts"
   },
   "author": "Oleksandr Khotemskyi <xotabu4@gmail.com>",
   "license": "MIT",
   "dependencies": {
     "@types/mocha": "8.2.0",
-    "@types/node": "14.14.20",
+    "@types/node": "14.14.25",
     "got": "11.7.0",
+    "http-req-builder": "^1.0.2",
     "mocha": "8.2.1",
+    "openapi-typescript": "^3.0.1",
     "ts-node": "9.1.1",
     "typescript": "4.1.3"
   }

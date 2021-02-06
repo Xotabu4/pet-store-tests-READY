@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "postinstall": "npm pretest",
+    "postinstall": "npm run pretest",
     "pretest": "openapi-typescript http://93.126.97.71:10080/api/swagger.json --output ./.temp/types.ts",
     "test": "mocha --require ts-node/register ./test/**/*.ts"
   },

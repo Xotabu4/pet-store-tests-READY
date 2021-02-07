@@ -1,7 +1,4 @@
-# pet-store-tests-READY
-
-
-Каждое видео из плейлиста имеет свою ветку:
+### Каждое видео из плейлиста (https://www.youtube.com/playlist?list=PLEUkJQfJdxsQptXYqu07xwNyc_kcCzX2I) имеет свою ветку:
 
 1. [Start of API testing project](https://www.youtube.com/watch?v=HmzT298UOy8&list=PLEUkJQfJdxsQptXYqu07xwNyc_kcCzX2I&index=1) - https://github.com/Xotabu4/pet-store-tests-READY/tree/1-starting-project
 

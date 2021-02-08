@@ -12,7 +12,6 @@
   "dependencies": {
     "@types/mocha": "8.2.0",
     "@types/node": "14.14.25",
-    "got": "11.7.0",
     "http-req-builder": "^1.0.2",
     "mocha": "8.2.1",
     "openapi-typescript": "^3.0.1",

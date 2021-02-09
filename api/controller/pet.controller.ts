@@ -2,11 +2,8 @@ import { URLSearchParams } from 'url';
 import { definitions, operations } from '../../.temp/types'
 import { JsonRequestWithValidation } from '../request';
 
-type CreatePetModel = Omit<definitions['Pet'], "id">
-
-
 export class PetController {
-    async addNew(pet: CreatePetModel) {
+    async addNew(pet: Omit<definitions['Pet'], "id">) {
         return (
             await new JsonRequestWithValidation()
                 .url(`http://93.126.97.71:10080/api/pet`)

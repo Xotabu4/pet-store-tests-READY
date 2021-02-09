@@ -18,6 +18,7 @@ const responseValidator = new ResponseValidator({
 
 export class JsonRequestWithValidation extends JsonRequest {
     async send<T = any>() {
+        // Example is simplified: in case 4xx/5xx validation won't be applied
         const response = await super.send<T>()
         await responseValidator.assertResponse({
             method: response.request?.options?.method,

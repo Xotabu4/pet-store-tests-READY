@@ -57,28 +57,7 @@ export class PetController {
             }
         }
 
-        validate(schema, {
-            "id": 'Hello',
-            "category": {
-                "id": 2,
-                "name": "Cats"
-            },
-            "name": 123,
-            "photoUrls": [
-                "url1",
-                "url2"
-            ],
-            "tags": [{
-                "id": 1,
-                "name": "tag1"
-            },
-            {
-                "id": 2,
-                "name": "tag2"
-            }
-            ],
-            "status": "available"
-        })
+        validate(schema, body)
         return body
     }
 

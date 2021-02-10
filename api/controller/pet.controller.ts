@@ -2,11 +2,7 @@ import { URLSearchParams } from 'url';
 import { definitions, operations } from '../../.temp/types'
 import { JsonRequest } from 'http-req-builder';
 import Ajv from 'ajv';
-import SwaggerParser from "@apidevtools/swagger-parser";
 
-async function loadAPISpec() {
-    return SwaggerParser.dereference('http://93.126.97.71:10080/api/swagger.json');
-}
 
 function validate(schema: any, body: any) {
     const ajv = new Ajv({
@@ -23,7 +19,6 @@ function validate(schema: any, body: any) {
     const valid = validate(body);
     if (!valid) {
         throw new Error(`Swagger validation errors: ${JSON.stringify({
-            // body: body,
             validationErrors: validate.errors
         }, null, 2)}`)
     }
@@ -83,13 +78,52 @@ export class PetController {
                 .url(`http://93.126.97.71:10080/api/pet/${id}`)
                 .send<operations['getPetById']['responses']['200']['schema']>()
         ).body;
-
-        const apiSpec = await loadAPISpec()
-        const schema = apiSpec.paths['/pet/{petId}']['get']['responses']['200']['schema']
-
-        body = { test: 'hello' } as any
-        validate(schema, body)
-
+        validate({
+            "$schema": "http://json-schema.org/draft-07/schema",
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "category": {
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "number"
+                        },
+                        "name": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string"
+                },
+                "photoUrls": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "id": {
+                                "type": "number"
+                            },
+                            "name": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                },
+                "status": {
+                    "type": "string"
+                }
+            }
+        }, body)
         return body
     }
 }

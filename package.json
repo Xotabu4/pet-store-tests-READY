@@ -10,9 +10,9 @@
   "author": "Oleksandr Khotemskyi <xotabu4@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "@types/lodash.mergewith": "^4.6.6",
     "@types/mocha": "8.2.0",
     "@types/node": "14.14.25",
-    "@types/lodash.mergewith": "^4.6.6",
     "http-req-builder": "^1.0.2",
     "lodash.mergewith": "^4.6.2",
     "mocha": "8.2.1",

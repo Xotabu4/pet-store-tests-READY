@@ -11,6 +11,10 @@ describe('Pet', () => {
         assert(petResp.id == 1)
     })
 
+    it('should be error for wrong id', async function () {
+
+    })
+
     it('can be received by status', async function () {
         let petResp = await pet.findByStatus('available')
         assert(petResp.length > 0)
@@ -29,6 +33,10 @@ describe('Pet', () => {
         assert(petResp.some(pet => pet.status == 'available'))
         assert(petResp.some(pet => pet.status == 'pending'))
         assert(!petResp.some(pet => pet.status == 'sold'))
+    })
+
+    it('should be error when searching by non-existing status', async function () {
+        let petResp = await pet.findByStatus('nonexist')
     })
 
     it('can be received by tag', async function () {

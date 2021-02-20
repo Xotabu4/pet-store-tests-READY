@@ -7,8 +7,6 @@ import mergeWith from 'lodash.mergewith';
  * @param args Objects to merge
  */
 export const mergeWithConcat = <T>(...args: Partial<T>[]): T =>
-    mergeWith({}, ...args, (objValue: any, srcValue: any) => {
-        if (Array.isArray(objValue)) {
-            return objValue.concat(srcValue);
-        }
-    })
+    mergeWith({}, ...args, (objValue: T, srcValue: T) =>
+        Array.isArray(objValue) ? objValue.concat(srcValue) : undefined
+    )

@@ -1,6 +1,5 @@
 import { JsonRequest } from "http-req-builder";
 import { ResponseValidator } from "response-openapi-validator";
-import { HTTPError } from 'http-req-builder/node_modules/got/dist/source'
 
 const responseValidator = new ResponseValidator({
     openApiSpecPath: 'http://93.126.97.71:10080/api/swagger.json',

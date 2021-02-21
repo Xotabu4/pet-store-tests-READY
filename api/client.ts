@@ -17,19 +17,19 @@ export class ApiClient {
             ...defaultParams,
             ...params
         }
-
         this.pet = new PetController(mergedParams)
         this.store = new StoreController(mergedParams)
         this.user = new UserController(mergedParams)
     }
 
-    static async unauthorized() {
+    static unauthorized() {
         return new ApiClient();
     }
 
     static async loginAs(credentials: { username: string, password: string }) {
-        const token = await new ApiClient().login(credentials)
-        return new ApiClient()
+        return new ApiClient({
+            token: await new ApiClient().user.login(credentials)
+        })
     }
 
 }

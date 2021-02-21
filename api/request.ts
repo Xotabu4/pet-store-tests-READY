@@ -20,24 +20,7 @@ const responseValidator = new ResponseValidator({
 export class JsonRequestWithValidation extends JsonRequest {
     async send<T = any>() {
         // Example is simplified: in case 4xx/5xx validation won't be applied
-        const stack = new Error().stack
-        let response;
-        try {
-            response = await super.send<T>()
-        } catch (err) {
-            err.stack = stack
-            if (err instanceof HTTPError) {
-                err.message = `
-                [${err?.options?.method}]: ${err?.options?.url} => ${err?.response?.statusCode} 
-
-                ${err.message} 
-
-                ${err?.response?.rawBody?.toString()}
-                `
-            }
-
-            throw err
-        }
+        const response = await super.send<T>()
 
         await responseValidator.assertResponse({
             method: response.request?.options?.method,

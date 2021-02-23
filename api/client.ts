@@ -8,9 +8,8 @@ export class ApiClient {
     public readonly store: StoreController;
     public readonly user: UserController;
 
-    private constructor(params?: { token?: string, cookies?: CookieJar, baseUrl?: string }) {
+    private constructor(params?: { token?: string, cookies?: CookieJar }) {
         const defaultParams = {
-            baseUrl: 'http://93.126.97.71:10080/api/',
             cookies: new CookieJar()
         }
         const mergedParams = {

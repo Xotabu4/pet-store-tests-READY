@@ -7,8 +7,7 @@ export class PetController extends BaseController {
     async getById(id: number | string) {
         return (
             await new JsonRequestWithValidation()
-                .prefixUrl(this.params.baseUrl)
-                .url(`pet/${id}`)
+                .url(`http://93.126.97.71:10080/api/pet/${id}`)
                 .headers({ token: this.params.token })
                 .send<operations['getPetById']['responses']['200']['schema']>()
         ).body;
@@ -17,8 +16,7 @@ export class PetController extends BaseController {
     async findByTags(tags: string | string[]) {
         return (
             await new JsonRequestWithValidation()
-                .prefixUrl(this.params.baseUrl)
-                .url(`pet/findByTags`)
+                .url(`http://93.126.97.71:10080/api/pet/findByTags`)
                 .headers({ token: this.params.token })
                 .searchParams(new URLSearchParams({ tags }))
                 .send<operations['findPetsByTags']['responses']['200']['schema']>()
@@ -28,8 +26,7 @@ export class PetController extends BaseController {
     async findByStatus(status: string | string[]) {
         return (
             await new JsonRequestWithValidation()
-                .prefixUrl(this.params.baseUrl)
-                .url(`pet/findByStatus`)
+                .url(`http://93.126.97.71:10080/api/pet/findByStatus`)
                 .headers({ token: this.params.token })
                 .searchParams(new URLSearchParams({ status }))
                 .send<operations['findPetsByStatus']['responses']['200']['schema']>()
@@ -40,8 +37,7 @@ export class PetController extends BaseController {
     async addNew(pet: Omit<definitions['Pet'], "id">) {
         return (
             await new JsonRequestWithValidation()
-                .prefixUrl(this.params.baseUrl)
-                .url(`pet`)
+                .url(`http://93.126.97.71:10080/api/pet`)
                 .headers({ token: this.params.token })
                 .method('POST')
                 .body(pet)
@@ -52,8 +48,7 @@ export class PetController extends BaseController {
     async update(pet: definitions['Pet']) {
         return (
             await new JsonRequestWithValidation()
-                .prefixUrl(this.params.baseUrl)
-                .url(`pet`)
+                .url(`http://93.126.97.71:10080/api/pet`)
                 .headers({ token: this.params.token })
                 .method('PUT')
                 .body(pet)
@@ -64,8 +59,7 @@ export class PetController extends BaseController {
     async delete(id: number | string) {
         return (
             await new JsonRequestWithValidation()
-                .prefixUrl(this.params.baseUrl)
-                .url(`pet/${id}`)
+                .url(`http://93.126.97.71:10080/api/pet/${id}`)
                 .headers({ token: this.params.token })
                 .method('DELETE')
                 .send<{ message: string }>()

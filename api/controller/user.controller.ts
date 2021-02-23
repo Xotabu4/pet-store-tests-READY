@@ -5,8 +5,7 @@ import { BaseController } from "./base.controller";
 export class UserController extends BaseController {
     async login(credentials: { username: string, password: string }) {
         return (await new JsonRequestWithValidation()
-            .prefixUrl(this.params.baseUrl)
-            .url(`user/login`)
+            .url(`http://93.126.97.71:10080/api/user/login`)
             .headers({ token: this.params.token })
             .searchParams(credentials)
             .send<operations['loginUser']['responses']['200']['schema']>()

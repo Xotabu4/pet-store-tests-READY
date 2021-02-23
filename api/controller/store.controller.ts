@@ -5,16 +5,14 @@ import { BaseController } from "./base.controller";
 export class StoreController extends BaseController {
     async getOrderById(orderId: number | string) {
         return (await new JsonRequestWithValidation()
-            .prefixUrl(this.params.baseUrl)
-            .url(`store/order/${orderId}`)
+            .url(`http://93.126.97.71:10080/api/store/order/${orderId}`)
             .headers({ token: this.params.token })
             .send<operations['getOrderById']['responses']['200']['schema']>()
         ).body
     }
     async placeOrder(order: Omit<definitions["Order"], "id">) {
         return (await new JsonRequestWithValidation()
-            .prefixUrl(this.params.baseUrl)
-            .url(`store/order`)
+            .url(`http://93.126.97.71:10080/api/store/order`)
             .headers({ token: this.params.token })
             .method('POST')
             .body(order)
@@ -24,8 +22,7 @@ export class StoreController extends BaseController {
     }
     async getInventory() {
         return (await new JsonRequestWithValidation()
-            .prefixUrl(this.params.baseUrl)
-            .url(`store/inventory`)
+            .url(`http://93.126.97.71:10080/api/store/inventory`)
             .headers({ token: this.params.token })
             .send<operations['getInventory']['responses']['200']['schema']>()
         ).body

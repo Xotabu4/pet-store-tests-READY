@@ -15,5 +15,5 @@
 
 5. 3 [Asserting response structure: Setting up validation for every response](https://www.youtube.com/watch?v=YJ3QZFWhgwM&list=PLEUkJQfJdxsQptXYqu07xwNyc_kcCzX2I&index=7&ab_channel=OleksandrKhotemskyi) - https://github.com/Xotabu4/pet-store-tests-READY/tree/5-3-library-openapi-validator
 
-6. [Asserting response structure: Setting up validation for every response](https://www.youtube.com/watch?v=YJ3QZFWhgwM&list=PLEUkJQfJdxsQptXYqu07xwNyc_kcCzX2I&index=7&ab_channel=OleksandrKhotemskyi) - https://github.com/Xotabu4/pet-store-tests-READY/tree/6-api-client
+6. [API client](not yet uploaded) - https://github.com/Xotabu4/pet-store-tests-READY/tree/6-api-client
 

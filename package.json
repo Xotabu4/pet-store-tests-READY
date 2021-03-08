@@ -2,11 +2,12 @@
   "name": "pet-store-tests-ready",
   "version": "1.0.0",
   "description": "",
+  "types": "./index.d.ts",
   "scripts": {
     "postinstall": "npm run pretest",
     "pretest": "openapi-typescript http://93.126.97.71:10080/api/swagger.json --output ./.temp/types.ts",
     "test": "mocha",
-    "ttest": "mocha"
+    "ttest": "mocha --api.configName local"
   },
   "author": "Oleksandr Khotemskyi <xotabu4@gmail.com>",
   "license": "MIT",
@@ -14,8 +15,9 @@
     "@types/mocha": "8.2.0",
     "@types/node": "14.14.25",
     "@types/tough-cookie": "^4.0.0",
+    "commander": "^7.1.0",
     "http-req-builder": "^1.1.0",
-    "mocha": "8.2.1",
+    "mocha": "8.3.1",
     "openapi-typescript": "^3.0.1",
     "response-openapi-validator": "^1.1.0",
     "tough-cookie": "^4.0.0",

@@ -4,7 +4,7 @@ import { ApiClient } from '../api/client';
 
 describe('Store', () => {
     it('can return his inventory, and correctly updates statuses', async function () {
-        console.log('£££', global.config)
+        console.log('###', global.config)
         // Potential issue when running in parallel, and other threads will add pets as well.
         const adminClient = await ApiClient.loginAs({ username: 'admin', password: 'admin' });
         const inventory = await adminClient.store.getInventory();

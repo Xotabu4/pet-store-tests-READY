@@ -4,6 +4,7 @@ import { ApiClient } from '../api/client';
 
 describe('Pet', () => {
     it('can be received by id', async function () {
+        console.log('£££', global.config)
         const petResp = await ApiClient.unauthorized().pet.getById(1)
         assert(petResp.id == 1)
     })

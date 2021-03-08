@@ -8,7 +8,7 @@ export class ApiClient {
     public readonly store: StoreController;
     public readonly user: UserController;
 
-    private constructor(params?: { token?: string, cookies?: CookieJar }) {
+    private constructor(params?: { token?: string, cookies?: CookieJar, prefixUrl?: URL }) {
         const defaultParams = {
             cookies: new CookieJar()
         }

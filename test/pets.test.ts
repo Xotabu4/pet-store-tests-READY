@@ -4,6 +4,8 @@ import { ApiClient } from '../api/client';
 
 describe('Pet', () => {
     it('can be received by id', async function () {
+        console.log('$$$$', (global as any).config)
+
         const petResp = await ApiClient.unauthorized().pet.getById(1)
         assert(petResp.id == 1)
     })
@@ -105,4 +107,4 @@ describe('Pet', () => {
         await adminClient.pet.delete(addedPet.id)
         // TODO: assert 404 error on attempt to get pet that was deleted
     })
-}) 
+})

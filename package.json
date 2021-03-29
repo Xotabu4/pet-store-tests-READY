@@ -5,7 +5,7 @@
   "scripts": {
     "postinstall": "npm run pretest",
     "pretest": "openapi-typescript http://93.126.97.71:10080/api/swagger.json --output ./.temp/types.ts",
-    "test2": "mocha"
+    "test": "mocha"
   },
   "author": "Oleksandr Khotemskyi <xotabu4@gmail.com>",
   "license": "MIT",

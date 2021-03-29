@@ -1,19 +1,16 @@
-import { definitions, operations } from "../../.temp/types";
-import { JsonRequestWithValidation } from "../request";
+import type { definitions, operations } from "../../.temp/types";
 import { BaseController } from "./base.controller";
 
 export class StoreController extends BaseController {
     async getOrderById(orderId: number | string) {
-        return (await new JsonRequestWithValidation()
-            .url(`http://93.126.97.71:10080/api/store/order/${orderId}`)
-            .headers({ token: this.params.token })
+        return (await this.request()
+            .url(`store/order/${orderId}`)
             .send<operations['getOrderById']['responses']['200']['schema']>()
         ).body
     }
     async placeOrder(order: Omit<definitions["Order"], "id">) {
-        return (await new JsonRequestWithValidation()
-            .url(`http://93.126.97.71:10080/api/store/order`)
-            .headers({ token: this.params.token })
+        return (await this.request()
+            .url(`store/order`)
             .method('POST')
             .body(order)
             // TODO: fix required in docs
@@ -21,9 +18,9 @@ export class StoreController extends BaseController {
         ).body
     }
     async getInventory() {
-        return (await new JsonRequestWithValidation()
-            .url(`http://93.126.97.71:10080/api/store/inventory`)
-            .headers({ token: this.params.token })
+        return (await this.request()
+            .url(`store/inventory`)
+            .headers({ token: this.options.token })
             .send<operations['getInventory']['responses']['200']['schema']>()
         ).body
     }

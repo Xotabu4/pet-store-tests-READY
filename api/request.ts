@@ -1,3 +1,4 @@
+import { allure } from "allure-mocha/dist/MochaAllureReporter";
 import { JsonRequest } from "http-req-builder";
 import { ResponseValidator } from "response-openapi-validator";
 import { CONFIG } from "../config/npmConfig";
@@ -21,10 +22,32 @@ const responseValidator = new ResponseValidator({
 })
 
 export class JsonRequestWithValidation extends JsonRequest {
+    constructor() {
+        super();
+        this.options = {
+            ...this.options,
+            hooks: {
+                afterResponse: [
+                    (response, retryWithMergedOptions) => {
+                        const stepName = `${response.statusCode} | ${this?.options?.method ?? 'GET'} ${this?.options?.url} | ${response?.timings?.phases?.total}ms`
+                        allure.createStep(stepName, () => {
+                            if (this?.options?.json) {
+                                allure.createAttachment(`JSON Request BODY`, JSON.stringify(this?.options?.json, null, 2), 'application/json' as any);
+                            }
+                            if (response.body) {
+                                allure.createAttachment(`JSON Response BODY`, JSON.stringify(response.body, null, 2), 'application/json' as any);
+                            }
+                        })();
+                        return response;
+                    }
+                ]
+            }
+        }
+    }
+
     async send<T = any>() {
         // Example is simplified: in case 4xx/5xx validation won't be applied
         const response = await super.send<T>()
-
         await responseValidator.assertResponse({
             method: response.request?.options?.method,
             requestUrl: response?.request?.requestUrl,

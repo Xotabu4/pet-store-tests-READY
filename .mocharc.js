@@ -4,5 +4,6 @@ module.exports = {
     ],
     spec: './test/**/*.ts',
     timeout: 60000,
-    parallel: true,
+    // reporters does not support parallel mode
+    parallel: false,
 }

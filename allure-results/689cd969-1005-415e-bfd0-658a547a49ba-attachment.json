@@ -1,0 +1,17 @@
+{
+  "category": {
+    "id": 0,
+    "name": "string"
+  },
+  "name": "Cat",
+  "photoUrls": [
+    "http://test.com/image.jpg"
+  ],
+  "tags": [
+    {
+      "id": 0,
+      "name": "string"
+    }
+  ],
+  "status": "sold"
+}

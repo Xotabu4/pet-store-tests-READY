@@ -1,0 +1,18 @@
+{
+  "id": 92,
+  "category": {
+    "id": 1,
+    "name": "string2"
+  },
+  "name": "Dog",
+  "photoUrls": [
+    "http://test.com/image2.jpg"
+  ],
+  "tags": [
+    {
+      "id": 1,
+      "name": "string2"
+    }
+  ],
+  "status": "pending"
+}

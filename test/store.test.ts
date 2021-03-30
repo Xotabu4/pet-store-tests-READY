@@ -2,7 +2,7 @@ import { strict as assert } from 'assert'
 import { definitions } from '../.temp/types';
 import { ApiClient } from '../api/client';
 
-describe('Store', () => {
+describe('Store', function () {
     it('can return his inventory, and correctly updates statuses', async function () {
         // Potential issue when running in parallel, and other threads will add pets as well.
         const adminClient = await ApiClient.loginAs({ username: 'admin', password: 'admin' });

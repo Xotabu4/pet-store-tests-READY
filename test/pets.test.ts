@@ -2,7 +2,7 @@ import { strict as assert } from 'assert'
 import { definitions } from '../.temp/types';
 import { ApiClient } from '../api/client';
 
-describe('Pet', () => {
+describe('Pet', function () {
     it('can be received by id', async function () {
         const petResp = await ApiClient.unauthorized().pet.getById(1)
         assert(petResp.id == 1)

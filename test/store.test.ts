@@ -28,7 +28,6 @@ describe('Store', function () {
             petId: 1,
             quantity: 1,
             shipDate: new Date().toISOString()
-            // TODO: verify rest of params
         }
         const placedOrder = await userClient.store.placeOrder(order)
         const adminClient = await ApiClient.loginAs({ username: 'admin', password: 'admin' })

@@ -1,3 +1,5 @@
+allure-results/
+allure-report/
 .temp/
 
 # Logs

@@ -8,7 +8,7 @@ export class StoreController extends BaseController {
             .send<operations['getOrderById']['responses']['200']['schema']>()
         ).body
     }
-    async placeOrder(order: Omit<definitions["Order"], "id">) {
+    async placeOrder(order: Omit<Required<definitions["Order"]>, "id" | 'status' | 'complete'>) {
         return (await this.request()
             .url(`store/order`)
             .method('POST')

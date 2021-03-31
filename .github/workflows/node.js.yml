@@ -1,0 +1,26 @@
+# This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
+
+name: Node.js CI
+
+on:
+  workflow_dispatch:
+
+jobs:
+  Run tests:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js 15.x
+      uses: actions/setup-node@v1
+      with:
+        node-version: 15.x
+    - run: npm cit
+    - name: Compress results
+      uses: montudor/action-zip@v0.1.0
+      if: ${{ always() }}
+      with:
+        args: zip -qq -r ./allure-results.zip ./allure-results
+    - name: Send Results and Generate Report
+      if: ${{ always() }}
+      run: node --unhandled-rejections=strict ./scripts/upload-generate-report.js

@@ -8,13 +8,13 @@ export class StoreController extends BaseController {
             .send<operations['getOrderById']['responses']['200']['schema']>()
         ).body
     }
-    async placeOrder(order: Omit<Required<definitions["Order"]>, "id" | 'status' | 'complete'>) {
+    async placeOrder(order: Omit<definitions["Order"], "id" | 'complete'>) {
         return (await this.request()
             .url(`store/order`)
             .method('POST')
             .body(order)
             // TODO: fix required in docs
-            .send<Required<operations['placeOrder']['responses']['200']['schema']>>()
+            .send<operations['placeOrder']['responses']['200']['schema']>()
         ).body
     }
     async getInventory() {

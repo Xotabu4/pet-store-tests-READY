@@ -21,8 +21,8 @@ export class BaseController {
     }
 
     constructor(options?: ControllerOptions) {
-        const defaultUrl = new URL(CONFIG.get('petstore_URL'))
-        defaultUrl.pathname = CONFIG.get('petstore_URL_prefix_path')
+        const defaultUrl = new URL(CONFIG.get('petstore_url'))
+        defaultUrl.pathname = CONFIG.get('petstore_url_prefix_path')
         const defaultOptions = {
             cookies: new CookieJar(),
             prefixUrl: defaultUrl.toString(),

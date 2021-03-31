@@ -24,10 +24,12 @@ describe('Store', function () {
 
     it('allows to place order by user, and admin can see created order', async function () {
         const userClient = await ApiClient.loginAs({ username: 'user', password: 'user' })
-        const order = {
+        const order: definitions['Order'] = {
+            id: Date.now(),
             petId: 1,
             quantity: 1,
-            shipDate: new Date().toISOString()
+            shipDate: new Date().toISOString(),
+            status: 'placed'
         }
         const placedOrder = await userClient.store.placeOrder(order)
         const adminClient = await ApiClient.loginAs({ username: 'admin', password: 'admin' })

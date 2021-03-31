@@ -3,12 +3,12 @@ import { JsonRequest } from "http-req-builder";
 import { ResponseValidator } from "response-openapi-validator";
 import { CONFIG } from "../config/npmConfig";
 
-const defaultSwaggerURL = new URL(CONFIG.get('petstore_swagger_URL'))
-defaultSwaggerURL.pathname = CONFIG.get('petstore_URL_prefix_path') + '/swagger.json'
+const defaultSwaggerURL = new URL(CONFIG.get('petstore_swagger_url'))
+defaultSwaggerURL.pathname = CONFIG.get('petstore_url_prefix_path') + '/swagger.json'
 
 const responseValidator = new ResponseValidator({
     openApiSpecPath: defaultSwaggerURL.toString(),
-    apiPathPrefix: CONFIG.get('petstore_URL_prefix_path'),
+    apiPathPrefix: CONFIG.get('petstore_url_prefix_path'),
     ajvOptions: {
         allErrors: true,
         verbose: true,

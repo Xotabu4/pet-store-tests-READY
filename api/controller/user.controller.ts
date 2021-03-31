@@ -2,6 +2,14 @@ import type { definitions, operations } from "../../.temp/types";
 import { BaseController } from "./base.controller";
 
 export class UserController extends BaseController {
+    async register(user: Omit<definitions['User'], 'id' | 'userStatus'>) {
+        return (await this.request()
+            .method('POST')
+            .url(`user/register`)
+            .body(user)
+            .send<operations['createUser']['responses']['200']['schema']>()
+        ).body
+    }
     async login(credentials: { username: string, password: string }) {
         return (await this.request()
             .url(`user/login`)

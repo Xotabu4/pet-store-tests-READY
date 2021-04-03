@@ -16,11 +16,16 @@ jobs:
       with:
         node-version: 15.x
     - run: npm cit
-    - name: Compress results
-      uses: montudor/action-zip@v0.1.0
-      if: ${{ always() }}
+    - name: Send Results and Generate Allure Report
+      uses: Xotabu4/send-to-allure-server-action@1
       with:
-        args: zip -qq -r ./allure-results.zip ./allure-results
-    - name: Send Results and Generate Report
-      if: ${{ always() }}
-      run: node --unhandled-rejections=strict ./scripts/upload-generate-report.js
+        allure-server-url: 'http://93.126.97.71:5001/'
+
+    # - name: Compress results
+    #   uses: montudor/action-zip@v0.1.0
+    #   if: ${{ always() }}
+    #   with:
+    #     args: zip -qq -r ./allure-results.zip ./allure-results
+    # - name: Send Results and Generate Report
+    #   if: ${{ always() }}
+    #   run: node --unhandled-rejections=strict ./scripts/upload-generate-report.js

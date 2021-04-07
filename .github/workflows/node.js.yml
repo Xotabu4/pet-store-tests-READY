@@ -1,7 +1,7 @@
 # This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
 
-name: Node.js CI
+name: Petstore API tests
 
 on:
   workflow_dispatch
@@ -18,6 +18,7 @@ jobs:
     - run: npm cit
     - name: Send Results and Generate Allure Report
       uses: Xotabu4/send-to-allure-server-action@1
+      if: ${{ always() }}
       with:
         allure-server-url: 'http://93.126.97.71:5001/'
 

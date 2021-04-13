@@ -10,7 +10,7 @@ export class StoreController extends BaseController {
             .send<operations['getOrderById']['responses']['200']['schema']>()
         ).body
     }
-    async placeOrder(order: Omit<definitions["Order"], "id">) {
+    async placeOrder(order: Omit<definitions["Order"], "id" | "status">) {
         return (await new JsonRequestWithValidation()
             .url(`http://93.126.97.71:10080/api/store/order`)
             .headers({ token: this.params.token })

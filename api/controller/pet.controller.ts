@@ -1,11 +1,15 @@
 import { URLSearchParams } from 'url';
 import { definitions, operations } from '../../.temp/types'
+import { JsonRequestWithValidation } from '../request';
 import { BaseController } from './base.controller';
 
 export class PetController extends BaseController {
     async getById(id: number | string) {
         return (
-            await this.request()
+            await new JsonRequestWithValidation()
+                .prefixUrl(new URL(this.options.prefixPath, this.options.prefixUrl))
+                .headers({ token: this.options.token })
+                .cookieJar(this.options.cookieJar)
                 .url(`pet/${id}`)
                 .send<operations['getPetById']['responses']['200']['schema']>()
         ).body;
@@ -13,7 +17,10 @@ export class PetController extends BaseController {
 
     async findByTags(tags: string | string[]) {
         return (
-            await this.request()
+            await new JsonRequestWithValidation()
+                .prefixUrl(new URL(this.options.prefixPath, this.options.prefixUrl))
+                .headers({ token: this.options.token })
+                .cookieJar(this.options.cookieJar)
                 .url('pet/findByTags')
                 .searchParams(new URLSearchParams({ tags }))
                 .send<operations['findPetsByTags']['responses']['200']['schema']>()
@@ -22,7 +29,10 @@ export class PetController extends BaseController {
 
     async findByStatus(status: string | string[]) {
         return (
-            await this.request()
+            await new JsonRequestWithValidation()
+                .prefixUrl(new URL(this.options.prefixPath, this.options.prefixUrl))
+                .headers({ token: this.options.token })
+                .cookieJar(this.options.cookieJar)
                 .url(`pet/findByStatus`)
                 .searchParams(new URLSearchParams({ status }))
                 .send<operations['findPetsByStatus']['responses']['200']['schema']>()
@@ -32,7 +42,10 @@ export class PetController extends BaseController {
 
     async addNew(pet: Omit<definitions['Pet'], "id">) {
         return (
-            await this.request()
+            await new JsonRequestWithValidation()
+                .prefixUrl(new URL(this.options.prefixPath, this.options.prefixUrl))
+                .headers({ token: this.options.token })
+                .cookieJar(this.options.cookieJar)
                 .url(`pet`)
                 .method('POST')
                 .body(pet)
@@ -42,7 +55,10 @@ export class PetController extends BaseController {
 
     async update(pet: definitions['Pet']) {
         return (
-            await this.request()
+            await new JsonRequestWithValidation()
+                .prefixUrl(new URL(this.options.prefixPath, this.options.prefixUrl))
+                .headers({ token: this.options.token })
+                .cookieJar(this.options.cookieJar)
                 .url(`pet`)
                 .method('PUT')
                 .body(pet)
@@ -52,7 +68,10 @@ export class PetController extends BaseController {
 
     async delete(id: number | string) {
         return (
-            await this.request()
+            await new JsonRequestWithValidation()
+                .prefixUrl(new URL(this.options.prefixPath, this.options.prefixUrl))
+                .headers({ token: this.options.token })
+                .cookieJar(this.options.cookieJar)
                 .url(`pet/${id}`)
                 .method('DELETE')
                 .send<{ message: string }>()

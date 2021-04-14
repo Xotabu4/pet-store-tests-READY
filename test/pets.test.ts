@@ -4,9 +4,6 @@ import { ApiClient } from '../api/client';
 
 describe('Pet', () => {
     it('can be received by id', async function () {
-        console.log('$$$', process.env.PETSTORE_URL)
-        console.log('$$$', process.env.PETSTORE_API_PREFIX_PATH)
-        console.log('$$$', process.env.PETSTORE_SWAGGER_URL)
         const petResp = await ApiClient.unauthorized().pet.getById(1)
         assert(petResp.id == 1)
     })

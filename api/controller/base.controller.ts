@@ -12,11 +12,5 @@ export type ControllerOptions = {
 export class BaseController {
     constructor(protected readonly options: ControllerOptions) { }
 
-    protected request() {
-        const preparedUrl = new URL(this.options.prefixPath, this.options.prefixUrl)
-        return new this.options.RequestBuilder()
-            .prefixUrl(preparedUrl)
-            .headers({ token: this.options.token })
-            .cookieJar(this.options.cookieJar)
-    }
+
 }

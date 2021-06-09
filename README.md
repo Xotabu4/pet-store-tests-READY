@@ -17,3 +17,11 @@
 
 6. [API client](https://www.youtube.com/watch?v=V80GtIqg_vw&list=PLEUkJQfJdxsQptXYqu07xwNyc_kcCzX2I&index=8) - https://github.com/Xotabu4/pet-store-tests-READY/tree/6-api-client
 
+7. [Configuration](https://www.youtube.com/watch?v=9BjHCVG8Nqk&list=PLEUkJQfJdxsQptXYqu07xwNyc_kcCzX2I&index=9&t=899s) - https://github.com/Xotabu4/pet-store-tests-READY/tree/7-configuration
+
+7.1 [Mocha configuration file, pretest script](https://www.youtube.com/watch?v=SiqUbyXegbQ&list=PLEUkJQfJdxsQptXYqu07xwNyc_kcCzX2I&index=10) - https://github.com/Xotabu4/pet-store-tests-READY/tree/7-1-prepared-request-builder
+
+8. [Allure report](https://www.youtube.com/watch?v=wZEHSC53oes&list=PLEUkJQfJdxsQptXYqu07xwNyc_kcCzX2I&index=11) - https://github.com/Xotabu4/pet-store-tests-READY/tree/8-reporting
+
+8.1 [Steps in Allure report](https://www.youtube.com/watch?v=N96drP8xGpI&list=PLEUkJQfJdxsQptXYqu07xwNyc_kcCzX2I&index=12&t=9s) - https://github.com/Xotabu4/pet-store-tests-READY/tree/8-1-allure-steps
+

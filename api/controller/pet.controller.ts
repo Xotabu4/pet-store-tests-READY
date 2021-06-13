@@ -1,8 +1,10 @@
 import { URLSearchParams } from 'url';
 import { definitions, operations } from '../../.temp/types'
+import { step } from '../../utils/allureStep';
 import { BaseController } from './base.controller';
 
 export class PetController extends BaseController {
+    @step(`[PetController] Get pet by ID`)
     async getById(id: number | string) {
         return (
             await this.request()

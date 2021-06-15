@@ -23,5 +23,6 @@
 
 8. [Allure report](https://www.youtube.com/watch?v=wZEHSC53oes&list=PLEUkJQfJdxsQptXYqu07xwNyc_kcCzX2I&index=11) - https://github.com/Xotabu4/pet-store-tests-READY/tree/8-reporting
 
-8.1 [Steps in Allure report](https://www.youtube.com/watch?v=N96drP8xGpI&list=PLEUkJQfJdxsQptXYqu07xwNyc_kcCzX2I&index=12&t=9s) - https://github.com/Xotabu4/pet-store-tests-READY/tree/8-1-allure-steps
+8.1 [Steps in Allure report](https://www.youtube.com/watch?v=N96drP8xGpI&list=PLEUkJQfJdxsQptXYqu07xwNyc_kcCzX2I&index=12) - https://github.com/Xotabu4/pet-store-tests-READY/tree/8-1-allure-steps
 
+8.2 [Controller methods in Allure report](https://www.youtube.com/watch?v=ymhe9op0BnE&list=PLEUkJQfJdxsQptXYqu07xwNyc_kcCzX2I&index=13) - https://github.com/Xotabu4/pet-store-tests-READY/tree/8-2-controller-method-step

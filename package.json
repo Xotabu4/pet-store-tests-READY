@@ -16,6 +16,7 @@
     "allure-mocha": "^2.0.0-beta.9",
     "dotenv": "^8.2.0",
     "envalid": "^7.1.0",
+    "faker": "^5.5.3",
     "http-req-builder": "^1.1.0",
     "mocha": "8.2.1",
     "mocha-multi-reporters": "^1.5.1",
@@ -24,5 +25,8 @@
     "tough-cookie": "^4.0.0",
     "ts-node": "9.1.1",
     "typescript": "4.1.3"
+  },
+  "devDependencies": {
+    "@types/faker": "^5.5.7"
   }
 }

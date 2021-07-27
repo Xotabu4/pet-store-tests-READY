@@ -1,6 +1,6 @@
 import { strict as assert } from 'assert'
-import { definitions } from '../.temp/types';
 import { ApiClient } from '../api/client';
+import { RandomCreatePetModel } from '../api/model/pet.model';
 
 describe('Pet', () => {
     it('can be received by id', async function () {
@@ -38,25 +38,7 @@ describe('Pet', () => {
 
     it('can be added, updated, and deleted', async function () {
         const adminClient = await ApiClient.loginAs({ username: 'admin', password: 'admin' });
-
-        const petToCreate: Omit<definitions['Pet'], "id"> = {
-            category: {
-                id: 0,
-                name: "string"
-            },
-            name: "Cat",
-            photoUrls: [
-                "http://test.com/image.jpg"
-            ],
-            tags: [
-                {
-                    id: 0,
-                    name: "string"
-                }
-            ],
-            status: "available"
-        }
-
+        const petToCreate = RandomCreatePetModel()
         const addedPet = await adminClient.pet.addNew(petToCreate)
         assert.deepEqual(
             addedPet,
@@ -75,23 +57,9 @@ describe('Pet', () => {
             },
             `Expected found pet to match created pet`
         )
-        const newerPet: definitions['Pet'] = {
+        const newerPet = {
+            ...RandomCreatePetModel(),
             id: addedPet.id,
-            category: {
-                id: 1,
-                name: "string2"
-            },
-            name: "Dog",
-            photoUrls: [
-                "http://test.com/image2.jpg"
-            ],
-            tags: [
-                {
-                    id: 1,
-                    name: "string2"
-                }
-            ],
-            status: "pending"
         }
         const updatedPet = await adminClient.pet.update(newerPet)
         assert.deepEqual(
@@ -105,4 +73,4 @@ describe('Pet', () => {
         await adminClient.pet.delete(addedPet.id)
         // TODO: assert 404 error on attempt to get pet that was deleted
     })
-}) 
+})
